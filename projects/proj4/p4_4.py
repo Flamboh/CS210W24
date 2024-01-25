@@ -20,6 +20,8 @@ def crypt(msg: str, method) -> str:
     '''
     return method(msg)
 
-encrypted = crypt("Ahoy, there!", p4_1.encrypt)
 
-print(encrypted, crypt(encrypted, p4_1.decrypt))
+if __name__ == "__main__":
+    encrypted = crypt("Ahoy, there!", p4_1.encrypt)
+
+    print(encrypted, crypt(encrypted, p4_1.decrypt))
