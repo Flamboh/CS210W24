@@ -6,6 +6,16 @@ Implement a simple replacement cipher (ROT-13)
 '''
 
 def encrypt(msg: str) -> str:
+    '''
+    Encrypt a given message using the ROT-13 
+    replacement cipher
+    Examples:
+    
+    >>> encrypt("Two driven jocks help fax my big quiz")
+    gjb qevira wbpxf uryc snk zl ovt dhvm
+    >>> encrypt("The quick brown fox jumps over the lazy dog")
+    gur dhvpx oebja sbk whzcf bire gur ynml qbt
+    '''
     msg = msg.lower()
     
     encrypted = ""
@@ -22,6 +32,16 @@ def encrypt(msg: str) -> str:
     return encrypted
 
 def decrypt(msg: str) -> str:
+    '''
+    Decrypt a given message that was encrypted
+    by the ROT-13 replacement cipher
+    Examples:
+    
+    >>> decrypt("gjb qevira wbpxf uryc snk zl ovt dhvm")
+    two driven jocks help fax my big quiz
+    >>> decrypt("gur dhvpx oebja sbk whzcf bire gur ynml qbt")
+    the quick brown fox jumps over the lazy dog
+    '''
     msg = msg.lower()
 
     decrypted = ""
@@ -39,7 +59,7 @@ def decrypt(msg: str) -> str:
 
 if __name__ == "__main__":
     
-    message = "Two driven jocks help fax my big quiz"
+    message = "The quick brown fox jumps over the lazy dog"
     encrypted = encrypt(message)
     print(encrypted)
     decrypted = decrypt(encrypted)

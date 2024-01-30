@@ -13,28 +13,25 @@ import random
 def draw_plane(radius, p):
     for _ in range(4):
         p.pu()
-        p.goto(0, 0)
+        p.goto(0, 0) # reset to origin
         p.pd()
-        p.fd(radius)
-        p.rt(90)
-
-
-    # # draw circle
-    # p.pu()
-    # p.goto(0, -radius)
-    # p.pd()
-    # p.circle(radius)           
-
-    # # draw square
-    # p.pu()
-    # p.goto(radius, radius)
-    # p.pd()
-    # for _ in range(4):
-    #     p.rt(90)
-    #     p.fd(2 * radius)
+        p.fd(radius) # each line of the plane will be the radius of the circle
+        p.rt(90) 
 
 
 def draw_dart(num_darts, radius, p):
+    '''
+    (int, int, Turtle) -> int
+    
+    Draw a dart in the plane for each dart thrown
+    and return the number of darts that landed in the circle
+    Examples:
+    
+    >>> draw_dart(5, 200, turtle.Turtle())
+    3
+    >>> draw_dart(40, 200, turtle.Turtle())
+    23'''
+    # random.seed(42) # comment or uncomment to seed or not to seed
     in_circle = 0
 
     for _ in range(num_darts):    
@@ -56,7 +53,7 @@ def draw_dart(num_darts, radius, p):
             p.color('red')
 
         p.pu()
-        p.goto(x*radius, y*radius) # multiply each coordinate by radius to keep scale
+        p.goto(x * radius, y * radius) # multiply each coordinate by radius to keep scale
         p.pd()
         p.dot()
         p.pu
@@ -70,6 +67,7 @@ def mc_vis(num_darts: int):
 
     Perform the necessary operations to visualize
     the Monte Carlo simulation in 2 dimensional space
+    using Turtle graphics
     '''
 
     RADIUS = 200 # radius constant
@@ -83,5 +81,5 @@ def mc_vis(num_darts: int):
 
 
 if __name__ == "__main__":
-    mc_vis(1000)
+    mc_vis(40)
 

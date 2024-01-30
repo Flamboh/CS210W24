@@ -23,14 +23,14 @@ def pi_arch(num_sides: int) -> float:
     2.938926261462366
     '''
     
-    inner_angle_B = 360.0 / num_sides
-    half_angle_A = inner_angle_B / 2
+    inner_angle_B = 360.0 / num_sides 
+    half_angle_A = inner_angle_B / 2 
 
-    half_side_S = math.sin(math.radians(half_angle_A))
+    half_side_S = math.sin(math.radians(half_angle_A)) # sin takes radians so we have to convert from degrees
     side_S = half_side_S * 2
 
     polygon_circumference = num_sides * side_S
-    pi = polygon_circumference / 2
+    pi = polygon_circumference / 2 
     
     return pi
 

@@ -18,15 +18,15 @@ def circle_area(diameter):
     Examples:
     
     >>> circle_area(10)
-    78.54
+    78.53981633974483
     >>> circle_area(4)
-    12.566
+    12.566370614359172
     '''
 
     r = diameter / 2
     area = math.pi * r**2
 
-    return round(area, 3)
+    return area
 
 
 def pizza_CPSI(diameter, cost):
@@ -40,7 +40,7 @@ def pizza_CPSI(diameter, cost):
     >>> pizza_CPSI(14, 18)
     0.117
     >>> pizza_CPSI(14, 20.25)
-    2   
+    0.132
     '''
 
     # r = diameter / 2
@@ -51,7 +51,6 @@ def pizza_CPSI(diameter, cost):
     cost_per_inch = cost / area
     cost_per_inch = round(cost_per_inch, 3)
     return cost_per_inch
-
 
 if __name__ == "__main__":
     print(doctest.testmod())
