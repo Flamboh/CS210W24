@@ -17,26 +17,14 @@ def encrypt(msg: str) -> str:
     >>> encrypt("The quick brown fox jumps over the lazy dog")
     T i o xusv ea ghqcbwf m et zdeukrnojporhlyo
     '''
-    # create empty string to add the rails to later
-    encrypted = ""
+    # use double colon slicing to take every third character from the message
+    # starting at the first, second, and third character
+    rail_1 = msg[::3]
+    rail_2 = msg[1::3]
+    rail_3 = msg[2::3]
 
-    # create empty rails to split the message into
-    rail_1 = ""
-    rail_2 = ""
-    rail_3 = ""
-
-    for i in range(len(msg)):
-        # add each character to the appropriate rail based on its index to create the encrypted message
-        if i % 3 == 0:
-            rail_1 += msg[i]
-        elif i % 3 == 1:
-            rail_2 += msg[i]
-        else:
-            rail_3 += msg[i]
-    
     # the encrypted message is the concatenation of the three rails
-    encrypted = rail_1 + rail_2 + rail_3
-    return encrypted
+    return rail_1 + rail_2 + rail_3
 
 
 def decrypt(msg: str) -> str:

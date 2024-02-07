@@ -16,16 +16,12 @@ def encrypt(msg: str) -> str:
     >>> encrypt("The quick brown fox jumps over the lazy dog")
     h uc rw o up vrtelz oTeqikbonfxjmsoe h aydg
     '''
-    # create empty strings to add the even and odd characters to
-    even_encrypt = ""
-    odd_encrypt = ""
+    # use double colon slicing to take every other character from the message
+    # starting at first and second character
+    odd_encrypt = msg[::2]
+    even_encrypt = msg[1::2]
 
-    for index in range(0, len(msg), 2):
-        even_encrypt += msg[index]
-    for index in range(1, len(msg), 2):
-        odd_encrypt += msg[index]
-
-    return odd_encrypt + even_encrypt
+    return even_encrypt + odd_encrypt
 
 def decrypt(msg: str) -> str:
     '''
@@ -41,13 +37,13 @@ def decrypt(msg: str) -> str:
 
     decrypted = ""
 
-    for odd_index in range(len(msg) // 2, len(msg)):
-        even_index = odd_index - len(msg) // 2
+    for even_index in range(len(msg) // 2, len(msg)):
+        odd_index = even_index - len(msg) // 2
 
-        decrypted += msg[odd_index]
+        decrypted += msg[even_index]
         
         if len(decrypted) != len(msg):
-            decrypted += msg[even_index]
+            decrypted += msg[odd_index]
         else:
             break
 
@@ -59,4 +55,4 @@ if __name__ == "__main__":
 
     encrypted = encrypt(message)
 
-    print(decrypt(encrypted), len(encrypted))
+    print(decrypt(encrypted), encrypted)

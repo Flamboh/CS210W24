@@ -30,7 +30,8 @@ def draw_dart(num_darts, radius, p):
     >>> draw_dart(5, 200, turtle.Turtle())
     3
     >>> draw_dart(40, 200, turtle.Turtle())
-    23'''
+    23
+    '''
     # random.seed(42) # comment or uncomment to seed or not to seed
     in_circle = 0
 
@@ -81,5 +82,5 @@ def mc_vis(num_darts: int):
 
 
 if __name__ == "__main__":
-    mc_vis(40)
+    mc_vis(1000)
 
