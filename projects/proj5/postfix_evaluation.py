@@ -38,7 +38,7 @@ def is_operand(operand: str) -> bool:
     >>> is_operand("3.14")
     False
     '''
-    if operand.isdigit():
+    if operand.strip("-").isdigit():
         return True
     else:
         return False
@@ -73,9 +73,7 @@ def eval_postfix(expr_str: str) -> float:
     operands = []
     expr_list = expr_str.split()
     for oper in expr_list:
-        if oper == ' ':
-            continue
-        elif is_operand(oper):
+        if is_operand(oper):
             operands.append(float(oper))
         elif is_operator(oper):
             if len(operands) < 2:
@@ -93,7 +91,9 @@ if __name__ == "__main__":
     # print(apply_operator("/", 4, 2))
     # print(is_operand("a"))
     # print(is_operator(""))
-    print(eval_postfix("33 4 +"))
+    # print(eval_postfix("33 4 +"))
     # print(eval_postfix("3 3 4 + 7 * /"))
-    print(doctest.testmod())
+    # print(doctest.testmod())
+    # print(is_operand("-2"))
+    # print(eval_postfix("3 4 - 7 *"))
     pass
